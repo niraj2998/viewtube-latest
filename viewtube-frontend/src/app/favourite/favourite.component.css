@@ -12,6 +12,13 @@
   margin-right: 150px;
 }
 
+.youtubePlayer{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+ 
+}
+
  .dropdown-item {
    color : black;
   /* color: black; */

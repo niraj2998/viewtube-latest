@@ -17,12 +17,17 @@ export class FavButtonComponent implements OnInit {
   @Input() channelTitle : any;
   @Input() isUserProfile : any;
   @Input() userId:any;
-  isFav : boolean = false;
-  iconClass : string = "far fa-heart";
+  @Input() isFav : boolean;
+  @Input() iconClass : string = "far fa-heart";
   // userId : number ;
+
+  if(isFav){
+    this.iconClass = "fas fa-heart"
+  }  
   
    videoDetails:any;
-  constructor( private favVideoService:FavServiceService,private shared:SharedService, private router: Router) { }
+  constructor( private favVideoService:FavServiceService,private shared:SharedService, private router: Router) {
+   }
 
   addToFav(userId,thumbnail,videoTitle,channelTitle,videoId){
     var isLoggedIn = sessionStorage.getItem("email");
@@ -85,7 +90,10 @@ export class FavButtonComponent implements OnInit {
 
  }
   ngOnInit(): void {
-    console.log(this.userId);
+    
+    if(this.isFav){
+      this.iconClass = "fas fa-heart"
+    }
   
   }
 

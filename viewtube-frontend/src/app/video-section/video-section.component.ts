@@ -17,12 +17,23 @@ export class VideoSectionComponent implements OnInit {
   @Input() videoId :any;
   @Input() channelTitle : any;
   @Input() isUserProfile : any;
-  isFav : boolean = false;
+  
+  @Input() favVideoArray : any[];
   iconClass : string = "far fa-heart";
+  @Input() isFav : boolean;
+
+  filledHeart : string = "fas fa-heart"
+  emptyHeart : string = "far fa-heart"
+
+   
+
+
   
   userDetails:any;
   singleUser:any;
-  constructor(private router:Router,private authService:AuthServiceService,private shared:SharedService) { }
+  constructor(private router:Router,private authService:AuthServiceService,private shared:SharedService) {
+
+   }
 
   handleCick(){
     
@@ -33,13 +44,30 @@ export class VideoSectionComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    // for(let id of this.favVideoArray){
+    //   if(id === this.videoId){
+    //     this.isFav = true;
+    //   }
+    //   else
+    //   {
+    //     this.isFav = false;
+    //   }
+    // }
+
     this.authService.getUser().subscribe((res) => {
       console.log("in video section");
-      
+    
       //console.log(res);
       this.userDetails=res;
       this.singleUser=this.userDetails.userId;
     });
+
+    
+     
+
   }
+
+
+  
 
 }
