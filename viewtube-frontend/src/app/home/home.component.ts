@@ -1,3 +1,4 @@
+import { FavServiceService } from './../Services/fav-service.service';
 import { AuthServiceService } from './../Services/auth-service.service';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
@@ -24,8 +25,11 @@ export class HomeComponent implements OnInit {
   videosByCategory : any;
   favVideos : any; 
   userDetails:any;
+  userId : any;
+  isFav : any;
+  favVideosList : any[] = [];
   //isUser : boolean = false;
-  constructor(private http: HttpClient,private authservice:AuthServiceService, private service: ApiServiceService, private router: Router, private mservice: MiddleService) {
+  constructor(private http: HttpClient,private authservice:AuthServiceService, private service: ApiServiceService, private router: Router, private mservice: MiddleService, private favVideosService : FavServiceService) {
   }
   //email : any = sessionStorage.getItem("email");
 
@@ -40,7 +44,8 @@ export class HomeComponent implements OnInit {
         }
       )
     }
-    else{
+    else
+    {
       alert("you need to login first");
       this.router.navigate(['/']);
     }
@@ -53,9 +58,35 @@ export class HomeComponent implements OnInit {
     // });
     // console.log(this.userDetails.userId)
     this.service.getPopularVideos().subscribe(
-      (data) => {
+       (data) => {
         console.log("fetching all channels{10}", data);
         this.popularVideos = data.items;
+        console.log(this.popularVideos)
+        this.authservice.getUser().subscribe((res) => {
+          //console.log(res)
+          this.userDetails=res;
+          console.log(this.userDetails.userId)
+          this.userId = this.userDetails.userId;
+          this.favVideosService.myfavVideos(this.userId).subscribe(
+            (data) => {
+
+              this.favVideos = data;
+              console.log(this.favVideos);
+              this.popularVideos.forEach((video) => {
+                video.isFav = false;
+                this.favVideos.map((favVideo) => {
+                  // console.log(favVideo)
+                  if(video.id == favVideo.videoId){
+
+                    this.favVideosList.push(favVideo.videoId);
+                    video.isFav = true
+                  }
+                })
+              })
+
+              }
+          );
+        });
       }
     );
   // testing
@@ -63,27 +94,52 @@ export class HomeComponent implements OnInit {
     console.log("category channels:",data)
     this.catChannl=data.items;
     console.log(this.catChannl);
+    
   });
 
-  this.authservice.getUser().subscribe((res) => {
-    console.log(res)
-    this.userDetails=res;
-    console.log(this.userDetails.userId)
-  });
+  
+
+  
+
+  
  // console.log(this.userDetails.userId)
 
 }
   //testing
 
-  favouriteVideos(){
-    this
-  }
   
   searchVideos() {
     let channelName = this.channelName.nativeElement.value;
     this.service.searchVideosService(channelName).subscribe((data) => {
       console.log("searched channels", data);
       this.searchedVideos = data.items;
+
+      this.authservice.getUser().subscribe((res) => {
+        //console.log(res)
+        this.userDetails=res;
+        console.log(this.userDetails.userId)
+        this.userId = this.userDetails.userId;
+        this.favVideosService.myfavVideos(this.userId).subscribe(
+          (data) => {
+  
+            this.favVideos = data;
+            console.log(this.favVideos);
+  
+            this.searchedVideos.forEach((video) => {
+              video.isFav = false;
+              console.log(video);
+              this.favVideos.map((favVideo) => {
+                // console.log(favVideo)
+                if(video.id.videoId == favVideo.videoId){
+                  this.favVideosList.push(favVideo.videoId);
+                  video.isFav = true
+                }
+              })
+            })
+  
+            }
+        );
+      });
     })
   }
 
@@ -91,6 +147,33 @@ export class HomeComponent implements OnInit {
     this.service.categoryChannels(id).subscribe((data) => {
       console.log("got videos by category", data);
       this.videosByCategory = data.items;
+
+      this.authservice.getUser().subscribe((res) => {
+        //console.log(res)
+        this.userDetails=res;
+        console.log(this.userDetails.userId)
+        this.userId = this.userDetails.userId;
+        this.favVideosService.myfavVideos(this.userId).subscribe(
+          (data) => {
+  
+            this.favVideos = data;
+            console.log(this.favVideos);
+  
+            this.videosByCategory.forEach((video) => {
+              video.isFav = false;
+              console.log(video);
+              this.favVideos.map((favVideo) => {
+                // console.log(favVideo)
+                if(video.id == favVideo.videoId){
+                  this.favVideosList.push(favVideo.videoId);
+                  video.isFav = true
+                }
+              })
+            })
+  
+            }
+        );
+      });
       
     })
   }

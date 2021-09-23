@@ -93,7 +93,7 @@
         <div class="row">
           <ul *ngFor="let searchVideos of searchedVideos">
             <app-video-section
-            
+              [isFav]="searchVideos.isFav"
               [thumbnail]="searchVideos.snippet.thumbnails.medium.url"
               [videoTitle]="searchVideos.snippet.title"
               [channelTitle]="searchVideos.snippet.channelTitle"
@@ -104,6 +104,7 @@
         <div class="row">
           <ul *ngFor="let videosByCategory of videosByCategory">
             <app-video-section
+              [isFav]="videosByCategory.isFav"
               [thumbnail]="videosByCategory.snippet.thumbnails.medium.url"
               [videoTitle]="videosByCategory.snippet.title"
               [channelTitle]="videosByCategory.snippet.channelTitle"
@@ -113,14 +114,13 @@
         </div>
 
         <ul *ngFor="let videos of popularVideos">
-          <ul >
           <app-video-section
+            [isFav]="videos.isFav"
             [thumbnail]="videos.snippet.thumbnails.medium.url"
             [videoTitle]="videos.snippet.title"
             [channelTitle]="videos.snippet.channelTitle"
             [videoId]="videos.id"
           ></app-video-section>
-          </ul>
         </ul>
       </div>
       

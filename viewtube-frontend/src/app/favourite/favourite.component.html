@@ -31,15 +31,19 @@
    </ul>
   </div>
   <div class="main_content">
+  <div class="youtubePlayer">
     <ul *ngFor="let videoId of videoid"> 
       <!-- <app-video-section [thumbnail]="favoriteVideo.thumbnail" [videoTitle]="favoriteVideo.videoTitle" [channelTitle]="favoriteVideo.channelTitle" [videoId]="favoriteVideo.videoId"></app-video-section> -->
+      <div class="m-1 p-2">
       <youtube-player 
       videoId={{videoId}} 
       suggestedQuality="highres" 
       [height]="250" 
       [width]="300" >
     </youtube-player>
+  </div>
       </ul>
+    </div>
   </div>
 </div>
 </body>

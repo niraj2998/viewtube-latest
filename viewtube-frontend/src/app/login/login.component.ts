@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
         (error: any) => {
           //alert(error);
           //console.log(error.error)
-          alert(error.error)
+          //alert(error.error)
         }
       );
       }

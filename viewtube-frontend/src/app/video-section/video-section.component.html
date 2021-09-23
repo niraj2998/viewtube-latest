@@ -7,7 +7,12 @@
 
         <div style="display: flex; justify-content: space-between;">
           <p>{{channelTitle}}</p>
-          <app-fav-button [userId]="singleUser"[thumbnail]="thumbnail"[videoId]="videoId" [channelTitle]="channelTitle" [videoTitle]="videoTitle"></app-fav-button>
+
+          <app-fav-button *ngIf="isFav; else elseBlock" [iconClass]="filledHeart" [isFav]="isFav" [userId]="singleUser"[thumbnail]="thumbnail"[videoId]="videoId" [channelTitle]="channelTitle" [videoTitle]="videoTitle"></app-fav-button>
+
+          <ng-template #elseBlock>
+            <app-fav-button [iconClass]="emptyHeart" [isFav]="isFav" [userId]="singleUser"[thumbnail]="thumbnail"[videoId]="videoId" [channelTitle]="channelTitle" [videoTitle]="videoTitle"></app-fav-button>
+          </ng-template>
         </div>
         
         <!-- <fa-icon [icon]="faHeart" ></fa-icon> -->
