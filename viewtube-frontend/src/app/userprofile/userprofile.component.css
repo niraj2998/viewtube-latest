@@ -113,6 +113,16 @@
 .wrapper .main_content .info div {
   margin-bottom: 20px;
 }
+table tr td
+{
+  padding: 10px;
+}
+
+.dropdown-item:hover{
+  background-color: white;
+}
+
+
 
 
 

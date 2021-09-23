@@ -14,6 +14,7 @@ export class ForgetPasswordComponent implements OnInit {
   confirmPassword : string;
 
   isEmail : boolean = false;
+  isRegister: boolean = false;
 
   constructor(private router: Router,private authsvc: AuthServiceService) { }
 
@@ -53,7 +54,13 @@ export class ForgetPasswordComponent implements OnInit {
 
   }
 
-  
+  register() {
+    this.isRegister = !this.isRegister;
+    //this.router.navigate(['registration'])
+  }
+  login(){
+    this.router.navigate(['login'])
+  }
 
   ngOnInit(): void {
   }

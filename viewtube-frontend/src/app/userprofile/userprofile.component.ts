@@ -55,6 +55,9 @@ export class UserprofileComponent implements OnInit {
   getHome(){
     this.router.navigate(['home'])
   }
+  userprofile(){
+    this.router.navigate(['userprofile'])
+  }
 
 category(id) {
   this.service.categoryChannels(id).subscribe((data) => {

@@ -1,7 +1,7 @@
 body {
   font-family: "Karla", sans-serif;
   background-color: #d0d0ce;
- width: 100%;
+  width: 100%;
   min-height: 100vh;
   /* overflow: hidden;
   height : 110vh; */
@@ -22,8 +22,8 @@ body {
 .login-card {
   margin-left: -10px;
   border-radius: 10px;
-  width: 1345px;
-  overflow: hidden;
+  width: 1255px;
+  /* overflow: hidden; */
 }
 .login-card-img {
   border-radius: 0;
