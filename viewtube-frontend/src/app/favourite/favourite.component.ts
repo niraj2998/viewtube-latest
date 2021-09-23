@@ -5,13 +5,14 @@ import { MiddleService } from '../middle.service';
 import { SharedService } from '../Services/shared.service';
 import {FavServiceService} from '../Services/fav-service.service';
 import { AuthServiceService } from './../Services/auth-service.service';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-favourite',
   templateUrl: './favourite.component.html',
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  
+  faUser = faUser;
   userFavourites:any;
   favChannelList:any;
   userId:any;
@@ -46,6 +47,12 @@ export class FavouriteComponent implements OnInit {
   //   this.userFavourites=this.share.getFavourites()
    // console.log(this.userFavourites)
   // }
+  resetPassword(){
+    this.router.navigate(['reset-password'])
+  }
+  userprofile(){
+    this.router.navigate(['userprofile'])
+  }
   getHome(){
     this.router.navigate(['home'])
   }
@@ -53,5 +60,8 @@ export class FavouriteComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['login'])
   }
-
+  getFavourites(){
+    this.router.navigate(['fav'])
+  }
+ 
 }

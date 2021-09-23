@@ -1,113 +1,13 @@
-/* @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
-
-#heading {
-  /* margin-bottom: 25px; 
-  padding: 15px;
-}
-
- .dropdown-item {
-   color : black;
-  /* color: black; 
-} 
-
-
-.dropdown-menu{
-    background: white;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
-}
-
-/* body {
-  background-color: #f3f5f9;
-  /* background-color: #390569; 
-} 
-
-.wrapper {
-  display: flex;
-  position: relative;
-}
-
-.wrapper .sidebar {
-  width: 200px;
-  height: 100%;
-  /* background: #4b4276; */
-  /* background: #180e0eec; 
-  background: white;
-  padding: 30px 0px;
-  position: fixed;
-}
-
-.wrapper .sidebar h2 {
-   color:black; 
-
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.wrapper .sidebar ul li {
-  padding: 15px;
-  /* border-bottom: 1px solid #bdb8d7;
-  border-bottom: 1px solid #329cda57;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.wrapper .sidebar ul li a {
-  color: black;
-
-  /* display: block; 
-}
-
-.wrapper .sidebar ul li a .fas {
-  width: 25px;
-}
-
-.wrapper .sidebar ul li:hover {
-  background-color: black;
-}
-
-/* .wrapper .sidebar ul li:hover a {
-   color: #fff; 
-} 
-
-
-
-
-.wrapper .main_content {
-  width: 100%;
-  margin-left: 200px;
-}
-
-.wrapper .main_content .header {
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
-}
-
-.wrapper .main_content .info {
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .main_content .info div {
-  margin-bottom: 20px;
-} */
 
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
 
 #heading {
   /* margin-bottom: 25px; */
   padding: 15px;
+}
+.form-inline{
+  /* margin-left: 700px; */
+  margin-right: 70px;
 }
 
  .dropdown-item {
@@ -192,7 +92,8 @@
 
 
 .wrapper .main_content {
-  width: 100%;
+  
+  width:100%;
   margin-left: 200px;
 }
 
@@ -212,31 +113,3 @@
 .wrapper .main_content .info div {
   margin-bottom: 20px;
 }
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

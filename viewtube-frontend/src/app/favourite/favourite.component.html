@@ -11,6 +11,21 @@
   <nav class="navbar navbar-light bg-light justify-content-between">
     <h1 (click)="getHome()" style="cursor: pointer;">Viewtube</h1>
     <form class="form-inline">
+      <li class="nav-item dropdown">
+        <a   id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        >
+        <fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon></a>
+        <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton1"
+        style="cursor: pointer;">
+            
+        <a (click)="userprofile()" class="dropdown-item">UserProfile</a><br>
+            <a (click)="logout()" class="dropdown-item">Logout</a><br>
+            <a (click)="resetPassword()">ResetPassword</a>
+        </div>
+    </li> 
+   
     </form>
   </nav>
 <div class="wrapper">
@@ -21,13 +36,7 @@
      <li>
        <a href="/home"><i class="fas fa-home"></i>Home</a>
      </li>
-     <li><a
-      (click)="logout()"
-      class=" my-2 my-sm-0 mx-2"
-     
-    >
-      Logout
-    </a></li>
+    
    </ul>
   </div>
   <div class="main_content">
@@ -39,7 +48,7 @@
       videoId={{videoId}} 
       suggestedQuality="highres" 
       [height]="250" 
-      [width]="300" >
+      [width]="400" >
     </youtube-player>
   </div>
       </ul>

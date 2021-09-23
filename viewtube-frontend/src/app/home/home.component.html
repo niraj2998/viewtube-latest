@@ -26,13 +26,31 @@
       >
       <i class="fas fa-search"></i>
       </button>
-      <button
+      
+      <!-- bb -->
+      <li class="nav-item dropdown">
+        <a   id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        >
+        <fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon></a>
+        <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton1"
+        style="cursor: pointer;">
+            <a (click)="userprofile()" class="dropdown-item">UserProfile</a><br>
+            <!-- <a (click)="getFavourites()" class="dropdown-item">MyFavourites</a><br> -->
+            <a (click)="resetPassword()"class="dropdown-item">ResetPassword</a><br>
+            <a (click)="logout()" class="dropdown-item">logout</a><br>
+         
+        </div>
+    </li> 
+    <!-- bb -->
+      <!-- <button
         name="User Profile"
         class="btn btn-btn-primary mx-2"
         (click)="userprofile()"
       >
         <fa-icon [icon]="faUser" style="position: relative"></fa-icon>
-      </button>
+      </button> -->
     </form>
   </nav>
   

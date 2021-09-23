@@ -9,11 +9,27 @@
 </head>
 <body>
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <a href="/home"><h1 style="cursor: pointer;">Viewtube</h1></a>
+  <h1 (click)="getHome()" style="cursor: pointer;">Viewtube</h1>
+ 
   <form class="form-inline">
-    <input #channelName class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button  class="btn btn-outline-dark my-2 my-sm-0" type="submit" >Search</button>
+    
     <!-- <button  class="btn btn-outline-dark my-2 my-sm-0 mx-2" type="button" >Logout</button> -->
+    <li class="nav-item dropdown">
+      <a   id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      >
+      <fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon></a>
+      <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton1"
+      style="cursor: pointer;">
+          <a (click)="userprofile()" class="dropdown-item">UserProfile</a><br>
+          <!-- <a (click)="getFavourites()" class="dropdown-item">MyFavourites</a><br> -->
+          <a (click)="logout()" class="dropdown-item">Logout</a><br>
+          <a (click)="resetPassword()">ResetPassword</a>
+
+       
+      </div>
+  </li> 
   </form>
 </nav>
 <div class="wrapper">

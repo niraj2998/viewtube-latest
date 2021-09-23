@@ -30,7 +30,7 @@
         <!-- <h3 style="display: inline;">Viewtube</h3>-->
         <div class="card login-card">
           <nav class="nav">
-            <h1 style="margin-right: 60px" id="h3">Viewtube</h1>
+            <h2 style="margin-right: 60px" id="h3">Viewtube</h2>
             <!--<button id="signup"><a href="#" class="text-reset" (click)="register()">SignUp</a></button>-->
             <div id="signup" *ngIf="isRegister" class="d-flex flex-row">
               <!-- <a href="#" class="text-reset" ><button style="font-size:16px" >Sign up <i class="fa fa-sign-in"></i></button></a> -->
@@ -107,7 +107,13 @@
                       placeholder="Name"
                       required
                       [(ngModel)]="name"
-                    />
+                      #nameField="ngModel"
+                      [class.field-error]="form.submitted && nameField.invalid" />
+                      <span [hidden]="!form.submitted||nameField.valid" class="alert text-danger">
+                        Enter a name
+                      </span>
+
+                    
                   </div>
 
                   <div class="form-group">
@@ -120,7 +126,13 @@
                       placeholder="Email address"
                       required
                       [(ngModel)]="email"
+                      #emailField="ngModel"
                     />
+                    <span [hidden]="!form.submitted||emailField.valid" class="alert text-danger">
+                      Enter a Email
+                    </span>
+                  <span class="help-bpx" *ngIf="emailField.touched && !emailField.valid">Please enter email value</span>
+
                   </div>
                   <div class="form-group" *ngIf="isRegister">
                     <label for="phonenumber" class="sr-only">PhoneNumber</label>
@@ -133,7 +145,11 @@
                       placeholder="Enter 10 digits PhoneNumber"
                       required
                       [(ngModel)]="phonenumber"
+                      #PhoneNumberField=ngModel
                     />
+                    <span [hidden]="!form.submitted||PhoneNumberField.valid" class="alert text-danger">
+                      Enter a PhoneNumber
+                    </span>
                   </div>
 
                   <div class="form-group" *ngIf="isRegister">
@@ -146,7 +162,12 @@
                       placeholder="city"
                       required
                       [(ngModel)]="address"
+                      #addressField=ngModel
                     />
+                    <span [hidden]="!form.submitted||addressField.valid" class="alert text-danger">
+                      Enter a Address
+                    </span>
+                    
                   </div>
                   <!-- <span class="help-bpx" *ngIf="email.touched && !email.valid">Please enter email value</span> -->
                   <div class="form-group mb-4">
@@ -159,7 +180,11 @@
                       placeholder=" Password"
                       required
                       [(ngModel)]="password"
+                      #passwordField=ngModel
                     />
+                    <span [hidden]="!form.submitted||passwordField.valid" class="alert text-danger">
+                      Enter a Password
+                    </span>
                   </div>
                   <div class="form-group" *ngIf="isRegister">
                     <label for="confirmPassword" class="sr-only"

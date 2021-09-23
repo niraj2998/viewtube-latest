@@ -6,19 +6,35 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <!-- <title>Document</title> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 <body>
   <nav class="navbar navbar-light bg-light justify-content-between">
-  <h1 (click)="getHome()" style="cursor: pointer">Viewtube</h1>
+  <h2 (click)="getHome()" style="cursor: pointer">Viewtube</h2>
   <form class="form-inline">
-    <button
+    <li class="nav-item dropdown">
+      <a   id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      >
+      <fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon></a>
+      <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton1"
+      style="cursor: pointer;">
+          
+          <!-- <a (click)="getFavourites()" class="dropdown-item">MyFavourites</a><br> -->
+          <a (click)="logout()" class="dropdown-item">Logout</a><br>
+          <a (click)="resetPassword()">ResetPassword</a>
+      </div>
+  </li> 
+ 
+    <!-- <button
       (click)="logout()"
       class="btn btn-outline-dark my-2 my-sm-0 mx-2"
       type="button"
     >
       Logout
-    </button>
+    </button> -->
   </form>
 </nav>
 <hr />
@@ -82,7 +98,7 @@
         </tr>
         </table>
 
-        <button (click)="resetPassword()" class="btn btn-outline-secondary mt-5 p-1">Reset Password</button>
+        <!-- <button (click)="resetPassword()" class="btn btn-outline-secondary mt-5 p-1">Reset Password</button> -->
         
         
     </div>

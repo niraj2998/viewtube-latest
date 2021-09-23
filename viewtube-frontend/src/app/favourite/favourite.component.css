@@ -5,6 +5,12 @@
   /* margin-bottom: 25px; */
   padding: 15px;
 }
+.navbar{
+  padding: 15px;
+}
+.form-inline{
+  margin-right: 150px;
+}
 
 .youtubePlayer{
   display: flex;

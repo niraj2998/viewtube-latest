@@ -187,9 +187,16 @@ export class HomeComponent implements OnInit {
     //   })
   
     // }
-
+    resetPassword(){
+      this.router.navigate(['reset-password'])
+    }
+  
     getFavourites(){
       this.router.navigate(['fav'])
+    }
+    logout(){
+      sessionStorage.clear();
+      this.router.navigate(['login'])
     }
 
 

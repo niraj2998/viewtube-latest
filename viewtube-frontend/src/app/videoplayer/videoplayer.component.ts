@@ -1,5 +1,6 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { Router } from '@angular/router';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ApiServiceService } from '../api-service.service';
 import { AuthServiceService } from '../Services/auth-service.service';
 import { SharedService } from '../Services/shared.service';
@@ -12,7 +13,7 @@ import { SharedService } from '../Services/shared.service';
 })
 export class VideoplayerComponent implements OnInit {
  // @Input() videoId : any;
-
+ faUser = faUser;
    videoId:any;
   constructor( private authservice:AuthServiceService, private service: ApiServiceService,private router : Router,private shared:SharedService) { }
 
@@ -27,10 +28,20 @@ export class VideoplayerComponent implements OnInit {
         this.router.navigate(['userprofile'])
  
       }
-    )
-    
+    ) 
   }
   getFavourites(){
     this.router.navigate(['fav'])
+  }
+  resetPassword(){
+    this.router.navigate(['reset-password'])
+  }
+  
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['login'])
+  }
+  getHome(){
+    this.router.navigate(['home'])
   }
 }

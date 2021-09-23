@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { ResetPassword } from '../Models/resetPassword';
 import { AuthServiceService } from '../Services/auth-service.service';
 
@@ -9,6 +10,7 @@ import { AuthServiceService } from '../Services/auth-service.service';
   styleUrls: ['./reset-password.component.css']
 })
 export class ResetPasswordComponent implements OnInit {
+  faUser = faUser;
   email: string;
   oldPassword: string;
   newPassword: string;
@@ -37,6 +39,13 @@ export class ResetPasswordComponent implements OnInit {
 
   userprofile(){
     this.router.navigate(['userprofile'])
+  }
+  getHome(){
+    this.router.navigate(['home'])
+  }
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['login'])
   }
 
   ngOnInit(): void {

@@ -3,8 +3,8 @@ body {
   background-color: #d0d0ce;
  width: 100%;
   min-height: 100vh;
-  overflow: hidden;
-  height : 110vh;
+  /* overflow: hidden;
+  height : 110vh; */
 }
 
 .brand-wrapper {

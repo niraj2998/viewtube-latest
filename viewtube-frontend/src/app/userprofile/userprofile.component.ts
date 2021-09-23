@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MiddleService } from '../middle.service';
 import { SharedService } from '../Services/shared.service';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 //import { loginUser } from '../Models/loginUser';
 
 @Component({
@@ -14,6 +15,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
   styleUrls: ['./userprofile.component.css']
 })
 export class UserprofileComponent implements OnInit {
+  faUser = faUser;
 
   videosByCategory:any;
    //userdetails:User[];
@@ -41,15 +43,15 @@ export class UserprofileComponent implements OnInit {
   getFavourites(){
     this.router.navigate(['fav'])
   }
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['login'])
+  }
 
   resetPassword(){
     this.router.navigate(['reset-password'])
   }
 
-  logout(){
-    sessionStorage.clear();
-    this.router.navigate(['login'])
-  }
   getHome(){
     this.router.navigate(['home'])
   }
