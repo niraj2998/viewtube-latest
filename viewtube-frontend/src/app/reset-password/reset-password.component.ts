@@ -27,7 +27,7 @@ export class ResetPasswordComponent implements OnInit {
           this.router.navigate(['login']);
         },
         (error: any) => {
-          alert(`${error.error}!`)
+          alert(`please fill the data in all fields`)
         }
       );
     }

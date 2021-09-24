@@ -1,76 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <title>Document</title> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-  <nav id="heading" class="navbar navbar-light bg-light justify-content-between">
-    <h1>Viewtube</h1>
-    <form class="form-inline">
-      <input
-        #channelName
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button
-      style="border: none; outline: none; background: transparent; margin-right: 10px"
-        class="btn btn-outline-dark my-2 my-sm-0 sbtn"
-        type="submit"
-        (click)="searchVideos()"
-      >
-      <i class="fas fa-search"></i>
-      </button>
-      
-      <!-- bb -->
-      <li class="nav-item dropdown">
-        <a   id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>Document</title> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav
+      id="heading"
+      class="navbar sticky-top navbar-light bg-light justify-content-between"
+    >
+      <h1>Viewtube</h1>
+      <form class="form-inline">
+        <input
+          #channelName
+          class="form-control mr-sm-2 px-2 "
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          style="
+            border: none;
+            outline: none;
+            background: transparent;
+            margin-right: 10px;
+          "
+          class="btn btn-outline-dark my-2 my-sm-0 sbtn"
+          type="submit"
+          (click)="searchVideos()"
         >
-        <fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon></a>
-        <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton1"
-        style="cursor: pointer;">
-            <a (click)="userprofile()" class="dropdown-item">User Profile</a><br>
-            <!-- <a (click)="getFavourites()" class="dropdown-item">MyFavourites</a><br> -->
-            <a (click)="resetPassword()"class="dropdown-item">Reset Password</a><br>
-            <a (click)="logout()" class="dropdown-item">Logout</a><br>
-         
-        </div>
-    </li> 
-    <!-- bb -->
-      <!-- <button
+          <i class="fas fa-search"></i>
+        </button>
+
+        <!-- bb -->
+        <li class="nav-item dropdown">
+          <a
+            id="dropdownMenuButton1"
+            class="nav-link dropdown-toggle"
+            data-toggle="dropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <fa-icon
+              [icon]="faUser"
+              style="position: relative; margin-left: 10px"
+            ></fa-icon
+          ></a>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton1"
+            style="cursor: pointer"
+          >
+            <a (click)="userprofile()" class="dropdown-item">User Profile</a>
+            <a (click)="resetPassword()" class="dropdown-item"
+              >Reset Password</a
+            >
+            <a (click)="logout()" class="dropdown-item">Logout</a>
+          </div>
+        </li>
+        <!-- bb -->
+        <!-- <button
         name="User Profile"
         class="btn btn-btn-primary mx-2"
         (click)="userprofile()"
       >
         <fa-icon [icon]="faUser" style="position: relative"></fa-icon>
       </button> -->
-    </form>
-  </nav>
-  
-  <div class="wrapper">
-   <!-- <app-side-bar></app-side-bar> -->
-   <div class="sidebar">
-    <!-- <h2>menu</h2> -->
-    <ul>
-      <li>
-        <a href="/home"><i class="fas fa-home"></i>Home</a>
-      </li>
- 
-      <li>
-        <a (click)="getFavourites()" style="cursor: pointer" name="Favourites" >
-          My Favourites
-          <!-- <fa-icon [icon]="faUser" style="position: relative"></fa-icon> -->
-        </a>
-      </li>
-      
-      <!-- <li class="nav-item dropdown">
+      </form>
+    </nav>
+
+    <div class="wrapper">
+      <!-- <app-side-bar></app-side-bar> -->
+      <div class="sidebar">
+        <!-- <h2>menu</h2> -->
+        <ul>
+          <li>
+            <a href="/home"><i class="fas fa-home"></i>Home</a>
+          </li>
+
+          <li>
+            <a
+              (click)="getFavourites()"
+              style="cursor: pointer"
+              name="Favourites"
+            >
+              My Favourites
+              <!-- <fa-icon [icon]="faUser" style="position: relative"></fa-icon> -->
+            </a>
+          </li>
+
+          <!-- <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
                     <div class="dropdown-menu">
                         <a href="#" class="dropdown-item">Inbox</a>
@@ -81,83 +106,93 @@
                     </div>
                 </li> -->
 
-      <li class=" nav-item dropdown">
-        <a
-          id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-          style="cursor: pointer"
-        >
-          Categories
-        </a>
-        <div 
-          class="dropdown-menu"
-          aria-labelledby="dropdownMenuButton1"
-          style="cursor: pointer;"
-        >   <p><a class="dropdown-item" (click)="category(28)">Science & Technology</a></p> 
-             <br>
-            <p><a class="dropdown-item" (click)="category(27)">Education</a></p>
-            <br>
-            <p><a class="dropdown-item" (click)="category(25)">News & Politics</a></p> 
-            <br>
-            <p><a class="dropdown-item" (click)="category(10)">Music</a></p> 
-        </div>
-      </li>
-    </ul>
-  </div>
-
-    <div class="main_content">
-      <div class="row">
-        <div class="row">
-          <ul *ngFor="let searchVideos of searchedVideos">
-            <app-video-section
-              [isFav]="searchVideos.isFav"
-              [thumbnail]="searchVideos.snippet.thumbnails.medium.url"
-              [videoTitle]="searchVideos.snippet.title"
-              [channelTitle]="searchVideos.snippet.channelTitle"
-              [videoId]="searchVideos.id.videoId"
-            ></app-video-section>
-          </ul>
-        </div>
-        <div class="row">
-          <ul *ngFor="let videosByCategory of videosByCategory">
-            <app-video-section
-              [isFav]="videosByCategory.isFav"
-              [thumbnail]="videosByCategory.snippet.thumbnails.medium.url"
-              [videoTitle]="videosByCategory.snippet.title"
-              [channelTitle]="videosByCategory.snippet.channelTitle"
-              [videoId]="videosByCategory.id"
-            ></app-video-section>
-          </ul>
-        </div>
-
-        <ul *ngFor="let videos of popularVideos">
-          <app-video-section
-            [isFav]="videos.isFav"
-            [thumbnail]="videos.snippet.thumbnails.medium.url"
-            [videoTitle]="videos.snippet.title"
-            [channelTitle]="videos.snippet.channelTitle"
-            [videoId]="videos.id"
-          ></app-video-section>
+          <li class="nav-item dropdown">
+            <a
+              id="dropdownMenuButton1"
+              class="nav-link dropdown-toggle"
+              data-toggle="dropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="cursor: pointer"
+            >
+              Categories
+            </a>
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownMenuButton1"
+              style="cursor: pointer"
+            >
+              <p>
+                <a class="dropdown-item" (click)="category(28)"
+                  >Science & Technology</a
+                >
+              </p>
+              
+              <p>
+                <a class="dropdown-item" (click)="category(27)">Education</a>
+              </p>
+              
+              <p>
+                <a class="dropdown-item" (click)="category(25)"
+                  >News & Politics</a>
+              </p>
+              
+              <p><a class="dropdown-item" (click)="category(10)">Music</a></p>
+            </div>
+          </li>
         </ul>
       </div>
-      
-      
+
+      <div class="main_content">
+        <div class="row">
+          
+          <div *ngIf="!inHOme && inSearch && !inCategory">
+            <div class="row">
+            <ul *ngFor="let searchVideos of searchedVideos">
+              <app-video-section
+                [isFav]="searchVideos.isFav"
+                [thumbnail]="searchVideos.snippet.thumbnails.medium.url"
+                [videoTitle]="searchVideos.snippet.title"
+                [channelTitle]="searchVideos.snippet.channelTitle"
+                [videoId]="searchVideos.id.videoId"
+              ></app-video-section>
+            </ul>
+          </div>
+          </div>
+          
+            <div *ngIf="!inHOme && !inSearch && inCategory">
+              <div class="row">
+            <ul *ngFor="let videosByCategory of videosByCategory">
+              <app-video-section
+                [isFav]="videosByCategory.isFav"
+                [thumbnail]="videosByCategory.snippet.thumbnails.medium.url"
+                [videoTitle]="videosByCategory.snippet.title"
+                [channelTitle]="videosByCategory.snippet.channelTitle"
+                [videoId]="videosByCategory.id"
+              ></app-video-section>
+            </ul>
+          </div>
+            </div>
+          
+          <div *ngIf="inHOme && !inSearch && !inCategory">
+            <div class="row">
+          <ul *ngFor="let videos of popularVideos">
+            <app-video-section
+              [isFav]="videos.isFav"
+              [thumbnail]="videos.snippet.thumbnails.medium.url"
+              [videoTitle]="videos.snippet.title"
+              [channelTitle]="videos.snippet.channelTitle"
+              [videoId]="videos.id"
+            ></app-video-section>
+          </ul>
+        </div>
+        </div>
+
+
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
 
-  
-
-
 <!--  -->
-
-
-
-
-
-
-
-
-

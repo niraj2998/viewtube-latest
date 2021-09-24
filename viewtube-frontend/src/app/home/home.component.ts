@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   @ViewChild('categoryChannel') categoryChannel: ElementRef;
   popularVideos: any
   //cat: any = []
-  isHOme : boolean = true;
+  inHOme : boolean = true;
+  inSearch : boolean = false;
+  inCategory : boolean = false;
   catChannl:any;
   cID: any = [];
   searchedVideos: any;
@@ -109,6 +111,9 @@ export class HomeComponent implements OnInit {
 
   
   searchVideos() {
+    this.inHOme = false;
+    this.inSearch = true;
+    this.inCategory = false;
     let channelName = this.channelName.nativeElement.value;
     this.service.searchVideosService(channelName).subscribe((data) => {
       console.log("searched channels", data);
@@ -144,6 +149,10 @@ export class HomeComponent implements OnInit {
   }
 
   category(id){
+    this.inHOme = false;
+    this.inSearch = false;
+    this.inCategory = true;
+
     this.service.categoryChannels(id).subscribe((data) => {
       console.log("got videos by category", data);
       this.videosByCategory = data.items;

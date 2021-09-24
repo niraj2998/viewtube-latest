@@ -9,10 +9,15 @@
   padding: 15px;
 }
 .form-inline{
-  margin-right: 150px;
+  margin-right: 15px; 
+}
+
+.dropdown-menu{
+  left: -150px;
 }
  .dropdown-item {
    color : black;
+   padding: 10px;
   /* color: black; */
 } 
 
