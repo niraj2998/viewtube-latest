@@ -13,28 +13,18 @@
   <nav class="navbar navbar-light bg-light justify-content-between">
   <h2 (click)="getHome()" style="cursor: pointer">Viewtube</h2>
   <form class="form-inline">
-    <div class="btn-group dropstart">
-      <button style="border: none; outline: none; background-color: transparent;" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
+
     <li class="nav-item dropdown">
-      <a   id="dropdownMenuButton1" class="nav-link dropdown-toggle" data-toggle="dropdown"
+      <a   id="dropdownMenuButton2" class="nav-link dropdown-toggle" data-toggle="dropdown"
       data-bs-toggle="dropdown"
       aria-expanded="false"
       >
       <button style="border: none; outline: none; background-color: transparent;"><fa-icon [icon]="faUser" style="position: relative;margin-left: 10px;"></fa-icon></button></a>
       <div class="dropdown-menu"   aria-labelledby="dropdownMenuButton1"
       style="cursor: pointer;">
-          
           <!-- <a (click)="getFavourites()" class="dropdown-item">MyFavourites</a><br> -->
-          <a (click)="userprofile()" class="dropdown-item">User Profile</a><br>
-          <a (click)="resetPassword()">Reset Password</a><br><br>
+          
+          <a (click)="resetPassword()" class="dropdown-item">Reset Password</a>
           <a (click)="logout()" class="dropdown-item">Logout</a>
       </div>
       

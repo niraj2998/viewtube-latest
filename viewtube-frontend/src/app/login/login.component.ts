@@ -6,6 +6,7 @@ import { AuthServiceService } from '../Services/auth-service.service';
 import { LoginUser } from '../Models/loginUser';
 import { RegisterUser } from '../Models/registerUser';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,11 +16,11 @@ export class LoginComponent implements OnInit {
   faVideo = faVideo;
 
   //user:User=new LoginUser()
-  name: string;
-  email: string;
+  name: string = undefined;
+  email: string = undefined;
   phonenumber:string;
   address:string;
-  password: string;
+  password: string = undefined;
   confirmPassword : string;
 
   //users:User[];
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   isRegister: boolean = false;
+  classIs : string = "login-class";;
 
   userCredentials: [];
 
@@ -71,9 +73,22 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['login']);
         },
         (error: any) => {
-          //alert(error);
+          console.log(this.email + " " + this.name + " " + this.password)
+          if(this.name == null || this.name == undefined || this.name == ""){
+            alert("name is required")
+          }
+          else if(this.password == null || this.password == undefined || this.password == ""){
+            alert("password is required")
+          }
+          else if(this.email == null || this.email == undefined || this.email == ""){
+            alert("email is required")
+          }
+          else{
+            alert("enter valid email");
+          }
+          //alert(error.error);
           //console.log(error.error)
-          //alert(error.error)
+          //alert("Enter a valid email address")
         }
       );
       }
@@ -89,6 +104,7 @@ export class LoginComponent implements OnInit {
   
   register() {
     this.isRegister = !this.isRegister;
+    this.classIs = "";
     //this.router.navigate(['registration'])
   }
   forgotpassword(){

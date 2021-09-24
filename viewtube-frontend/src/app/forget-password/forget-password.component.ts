@@ -27,7 +27,13 @@ export class ForgetPasswordComponent implements OnInit {
           this.isEmail = true;
         },
         (error: any) => {
-          alert(`User with this ${this.email} does not exist!`)
+          if(this.email == null || this.email == undefined || this.email == "") {
+            alert("Email is required")
+          }
+          else if(error.error){
+            alert(`user with ${this.email} does not exist`)
+          }
+          
         }
       );
     }
@@ -41,7 +47,9 @@ export class ForgetPasswordComponent implements OnInit {
         this.router.navigate(['login']);
       },
       (error: any) => {
-        alert(`${error.error}!`)
+        if(this.newPassword == null || this.newPassword == undefined || this.newPassword == ""){
+          alert("Password filled is required")
+        }
       }
     );
       }

@@ -28,7 +28,7 @@
     <main class="d-flex align-items-center min-vh-100">
       <div class="container">
         <!-- <h3 style="display: inline;">Viewtube</h3>-->
-        <div class="card login-card">
+    <div class="card login-card ">
           <nav class="nav">
             <h2 style="margin-right: 60px" id="h3">Viewtube</h2>
             <!--<button id="signup"><a href="#" class="text-reset" (click)="register()">SignUp</a></button>-->
@@ -36,13 +36,11 @@
               <!-- <a href="#" class="text-reset" ><button style="font-size:16px" >Sign up <i class="fa fa-sign-in"></i></button></a> -->
 
               <a
-                href="#"
                 class="text-reset"
-                
                 (click)="register()"
                 ><button
                   style="
-                    font-size: 16px;
+                    font-size: 13px !important;
                     border-radius: 5px;
                     border: 2px black solid;"
                   class="btn btn-dark"
@@ -52,12 +50,11 @@
             </div>
             <div id="signup" *ngIf="!isRegister">
               <a
-                href="#"
                 class="text-reset"
                 (click)="register()"
                 ><button
                   style="
-                    font-size: 16px;
+                    font-size: 13px;
                     border-radius: 5px;
                     border: 2px black solid;
                   "
@@ -94,36 +91,36 @@
                 </ng-template>
                 <!-- <form #regForm='ngForm' (ngSubmit)='Home(regForm)'> -->
                 <form #form="ngForm" (ngSubmit)="loginOrRegister(form)">
+
                   <div class="form-group" [ngClass]="{'has-error': 
-                  
                    !nameField.valid }"
                   *ngIf="isRegister">
-                    <label for="email" class="sr-only">Name</label>
-
+                    <label for="name" class="sr-only">Name</label>
                     <input
                       type="name"
                       name="name"
-                      id="email"
+                      id="name"
                       class="form-control"
                       placeholder="Name"
                       required
-                      minlength="3"
+                      minlength="3" 
                       [(ngModel)]="name"
                       #nameField="ngModel">
-                      
+
+
                       <span class="help-block" 
-                        *ngIf="( nameField.dirty) 
+                        *ngIf="(nameField.dirty) 
                         && nameField.errors">
                         <span *ngIf="nameField.errors.required" class="alert text-danger">
-                        Please enter your Name.</span>
+                        Invalid name !</span>
                         <span *ngIf="nameField.errors.minlength"  class="alert text-danger">
-                        The name must be longer than 3 characters.</span>
+                        Atleast 3 characters</span>
                         </span>
 
                   </div>
 
                   <div class="form-group" [ngClass]="{'has-error': 
-                  (emailField.touched || emailField.dirty) 
+                  (emailField.dirty) 
                   && !emailField.valid }">
                     <label for="email" class="sr-only">Email</label>
                     <input
@@ -137,16 +134,16 @@
                       #emailField="ngModel"
                     />
                     <span class="help-block" 
-                    *ngIf="(emailField.touched || emailField.dirty) 
+                    *ngIf="(emailField.dirty) 
                     && emailField.errors">
                     <span *ngIf="emailField.errors.required" class="alert text-danger">
-                    Please enter your Email.</span>
+                    Invalid email !</span>
                     </span>
                    
 
                   </div>
                   <div class="form-group" [ngClass]="{'has-error': 
-                  (PhoneNumberField.touched || PhoneNumberField.dirty) 
+                  (PhoneNumberField.dirty) 
                   && !PhoneNumberField.valid }" *ngIf="isRegister">
                     <label for="phonenumber" class="sr-only">PhoneNumber</label>
                     <input
@@ -158,21 +155,24 @@
                       placeholder="Enter 10 digits PhoneNumber"
                       required
                       minlength="10"
+                      maxlength="10"
                       [(ngModel)]="phonenumber"
                       #PhoneNumberField=ngModel
                     />
                     <span class="help-block" 
-                    *ngIf="(PhoneNumberField.touched || PhoneNumberField.dirty) 
+                    *ngIf="(PhoneNumberField.dirty) 
                     && PhoneNumberField.errors">
                     <span *ngIf="PhoneNumberField.errors.required" class="alert text-danger">
-                    Please enter your Contact Number.</span>
+                    Invalid number !</span>
                     <span *ngIf="PhoneNumberField.errors.minlength"  class="alert text-danger">
-                    The PhoneNumber should be 10 numbers.</span>
+                    Atleast 10 digit</span>
+                    <span *ngIf="PhoneNumberField.errors.maxlength"  class="alert text-danger">
+                    Invalid number!</span>
                     </span>
                   </div>
 
                   <div class="form-group" [ngClass]="{'has-error': 
-                  (addressField.touched || addressField.dirty) 
+                  (addressField.dirty) 
                   && !addressField.valid }" *ngIf="isRegister">
                     <label for="address" class="sr-only">Address</label>
                     <input
@@ -186,16 +186,16 @@
                       #addressField=ngModel
                     />
                     <span class="help-block" 
-                    *ngIf="(addressField.touched || addressField.dirty) 
+                    *ngIf="(addressField.dirty) 
                     && addressField.errors">
                     <span *ngIf="addressField.errors.required" class="alert text-danger">
-                    please provide your city.</span>
+                    Invalid city name!</span>
                     </span>
                     
                   </div>
                   <!-- <span class="help-bpx" *ngIf="email.touched && !email.valid">Please enter email value</span> -->
                   <div class="form-group mb-4"  [ngClass]="{'has-error': 
-                  (passwordField.touched || passwordField.dirty) 
+                  (passwordField.dirty) 
                   && !passwordField.valid }">
                     <!-- <label for="password" nclass="sr-only">Password</label>-->
                     <input
@@ -210,12 +210,12 @@
                       #passwordField=ngModel
                     />
                     <span class="help-block" 
-                    *ngIf="(passwordField.touched || passwordField.dirty) 
+                    *ngIf="(passwordField.dirty) 
                     && passwordField.errors">
                     <span *ngIf="passwordField.errors.required" class="alert text-danger">
-                    Please enter your Password.</span>
+                    Invalid password!</span>
                     <span *ngIf="passwordField.errors.minlength"  class="alert text-danger">
-                      The password must be longer than 8 characters.</span>
+                      Minimum 8 characters</span>
                     </span>
                   </div>
                   <div class="form-group" *ngIf="isRegister">
